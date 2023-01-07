@@ -54,7 +54,7 @@ a {
     background-color:rgba(255,255,255,1.0);
     position:fixed;
     width:100vw;
-    padding-right:30px;
+    padding-right:10px;
     z-index:100;
 }
 .gnav{
@@ -63,13 +63,17 @@ a {
     justify-content:flex-end;
     align-items: center; 
 }
+.gnav-item{
+    padding:0 50px;
+}
 .gnav-link {
     color: #2d658d;
     font-size: 25px;
     font-weight: bold;
     display: block;
     line-height: 60px;
-    padding:0 50px;
+    padding:0 20px;
+    
 }
 .gnav-link:hover { 
     background-color: #2d658d;
@@ -160,16 +164,6 @@ a {
 }
 .about-image {
     box-shadow: 3px 3px 15px #999;
-        animation: fadeInLeft 0.7s ease 0s 1 normal;
-}
-@keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    100% {
-      opacity: 1;
-    }
 }
 .about-image-info {
     width: 100%;
@@ -220,7 +214,7 @@ a {
     font-size: 20px;
     font-family: "Arial", sans-serif;
     font-weight: normal;
-    margin: 0;
+    margin: 0 0 10px;
 }
 .skill-meter {
     height: 12px;
@@ -250,6 +244,7 @@ a {
     font-weight: bold;
     margin-left: 3px;
 }
+
 .skill-image {
     width: 140px;
     float: right;
@@ -383,13 +378,6 @@ a {
     left:0;
     bottom:0;
 }
-
-/*hoverをすると線が伸びる*/
-.borderleft:hover span::before,
-.borderleft:hover span::after {
-    width: 100%;
-}
-
 /*背景の設定*/
 .borderleft::before{
 	content: '';
@@ -500,6 +488,8 @@ a {
     margin-top: 50px;
     border-radius: 20px;
     box-shadow: 5px 5px 10px #000;
+    width:95%;
+    margin: 0 auto;
 }
 .form-group {
     margin-bottom: 40px;
@@ -556,23 +546,27 @@ a {
     text-align: center;
     padding: 15px 0;
 }
-/* === フッター ここまで === */
-/* === レスポンシブ ここから === */
-@media screen and (max-width: 1199px) {
-    /* 1199px〜1080pxで表示が崩れるスタイルを調整 */
-    .modal-close {
+
+/* ===== responsive ===== */
+/* ----- 1199~1080px ----- */
+@media screen and (max-width:1199px){
+    .modal-close{
         background-color: rgba(0,0,0,0.5);
         padding: 15px;
-        right: 0;
+        right:0;
     }
 }
-@media screen and (max-width: 1079px) {
-    /* 1079px〜992pxで表示が崩れるスタイルを調整 */
-    .container {
-        width: 960px;
+/* ----- 1079~992px ----- */
+@media screen and (max-width:1079px){
+    .container{
+        width: 100%;
     }
-    .skill-item {
-        width: 465px;
+    .skill-list{
+        margin-left:15px;
+        margin-right:15px;
+    }
+    .skill-item{
+        width:465px;
     }
     .skill-detail {
         width: 320px;
@@ -580,8 +574,8 @@ a {
     .skill-image {
         width: 120px;
     }
-    .works-image-wrap {
-        width: 600px;
+    .works-image-wrap{
+        width:600px;
     }
     .works-image-inner {
         width: 465px;
@@ -590,40 +584,19 @@ a {
         left: 67px;
     }
 }
-@media screen and (max-width: 991px) {
-    /* 991px〜768pxで表示が崩れるスタイルを調整 */
-    .container {
-        width: 750px;
+/* ----- 991~768px ----- */
+@media screen and (max-width:991px){
+    .gnav-item{
+        padding:0 15px;
     }
-    .logo {
-        width: 200px;
+    container{
+        width: 100%;
     }
-    .gnav-link {
-        padding: 0 15px;
-    }
-    .site-title {
-        text-align: center;
-        transform: translateY(50%);
-        bottom: 50%;
-        left: 0;
-        right: 0;
-    }
-    .about-wrap {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .about-text-wrap {
-        order: 2;
-    }
-    .about-image-wrap {
-        margin-top: -300px;
-        margin-bottom: 60px;
-    }
-    .about-text-wrap {
-        width: 600px;
+    .about-text{
+        width:350px;
     }
     .skill-item {
-        width: 48%;
+        width: 45%;
         position: relative;
     }
     .skill-detail {
@@ -642,6 +615,7 @@ a {
         z-index: 0;
     }
     .works-inner {
+        /* ↓↓↓ flex無効 ↓↓↓ */
         display: block;
     }
     .works-image-wrap {
@@ -653,59 +627,52 @@ a {
         text-align: center;
     }
 }
-@media screen and (max-width: 767px) {
-    /* 767px〜（375px）で表示が崩れるスタイルを調整 */
-    .container {
-        width: 100%;
-        padding: 0 10px;
+/* ----- 767px~375px ----- */
+@media screen and (max-width:767px){
+    .container{
+        width:100%;
     }
-    .section-title .ja {
-        font-size: 24px;
+    .navbar-fixed{
+        display:none;
     }
-    .gnav-item {
-        display: none;
+    .site-title{
+        font-size:40px;
+        margin:0 auto;
     }
-    .site-title {
-        font-size: 10vw;
+    .about-wrap{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
     }
-    .about-area {
-        padding: 30px 0;
+    .about-image-wrap{
+        margin:0 auto;
     }
-    .about-image-wrap {
-        width: 90%;
-        max-width: 500px;
+    .about-text-inner{
+        margin: 0 auto;
+        margin-top:50px;
+        text-align: center;
     }
-    .about-image-info {
-        align-items: flex-end;
+    .skill-image{
+        position:absolute;
+        right:40px;
+        width:80px;
+        margin-bottom: 30px;
     }
-    .about-name {
-        font-size: 24px;
-        padding: 15px 50px 10px 20px;
-    }
-    .synonym {
-        font-size: 16px;
-    }
-    .about-sns-list {
+    .works-inner{
+        /* ↓↓↓ flex無効化　↓↓↓ */
         display: block;
-    }
-    .about-sns-item {
-        margin: 10px;
-    }
-    .skills-area {
-        padding: 30px 0;
-    }
-    .skill-item {
-        width: 100%;
-        margin-bottom: 40px;
     }
     .works-area {
         padding: 30px 0;
     }
-    .works-inner {
-        margin-bottom: 60px;
-    }
     .works-image-wrap {
-        width:100%;
+        width:95%;
+        margin:0 auto;
+        margin-bottom: 20px;
+    }
+    .works-text-wrap{
+        text-align: center;
+        margin:0 auto;
     }
     .works-image-frame {
         display: none;
@@ -726,11 +693,8 @@ a {
         font-size: 18px;
         margin: 0 0 20px;
     }
-    .contact-area {
-        padding: 30px 0;
-    }
-    .contact-form {
-        padding: 20px;
+    .contact-form{
+        padding:20px;
+        box-shadow: none;
     }
 }
-/* === レスポンシブ ここまで === */
