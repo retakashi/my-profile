@@ -32,20 +32,18 @@ img {
     vertical-align: bottom;
 }
 a {
-    color: #009BFC;
     text-decoration: none;
 }
 .container {
     width: 1060px;
     margin: auto;
 }
-.section-title .en {
+.section-title {
     text-align: center;
     color:#000;
     font-size: 50px;
     font-weight:300;
     font-family: 'Balsamiq Sans', sans-serif;
-    display: block;
     margin-bottom:50px;
 }
 
@@ -64,7 +62,7 @@ a {
     align-items: center; 
 }
 .gnav-item{
-    padding:0 50px;
+    padding:0 30px;
 }
 .gnav-link {
     color: #2d658d;
@@ -73,19 +71,11 @@ a {
     display: block;
     line-height: 60px;
     padding:0 20px;
-    
 }
 .gnav-link:hover { 
     background-color: #2d658d;
     color:#fff;
-    animation-name: fadeInAnime;
-    animation-duration:0.5s;
-    animation-fill-mode:forwards;
-    opacity: 0;
-}
-@keyframes fadeInAnime{
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    transition: 0.5s;
 }
 
 /* ===== top　title ===== */
@@ -98,7 +88,7 @@ a {
         -moz-animation: AnimationName 20s ease infinite;
         animation: AnimationName 20s ease infinite;
 }       
-@-webkit-keyframes AnimationName {
+/* @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
@@ -107,7 +97,7 @@ a {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
-}
+} */
 @keyframes AnimationName {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -118,17 +108,13 @@ a {
     font-weight: 500;
     color:#fff;
     font-family: 'Balsamiq Sans', sans-serif;
-    text-align: center;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height:100vh;
-    margin:0;
     animation-name: fadeInAnime;
-    animation-duration:5s;
-    animation-fill-mode:forwards;
-    opacity: 0;
+    animation-duration:3s;
 }
 @keyframes fadeInAnime{
     0% {opacity: 0;}
@@ -136,7 +122,9 @@ a {
 }
 .site-title h1{
     margin: 0;
+    text-align:center;
 }
+
 /* ===== about ===== */
 .about-area {
     padding: 60px 0;
@@ -153,14 +141,12 @@ a {
 .about-text {
     font-size: 20px;
     line-height: 2;
-    width:500px;
     margin-top: 0;
 }
 
 .about-image-wrap {
     width: 300px;
     position: relative;
-    /* margin-top: -160px; */
 }
 .about-image {
     box-shadow: 3px 3px 15px #999;
@@ -171,7 +157,6 @@ a {
     bottom:0;
     display: flex;
     justify-content:flex-end;
-    /* align-items: center; */
 }
 .about-sns-list {
     display: flex;
@@ -179,16 +164,17 @@ a {
 .about-sns-item {
     width: 45px;
     margin: 0 10px;
-    transition: 0.8s all;
+    transition: 0.8s;
 }
 .about-sns-item:hover {
-    opacity: 0.5;
+    /* transform:perspective(50px)translateZ(20px); */
+    transform:scale3d(1.5,1.5,0);
 }
 
 /* ===== skills ===== */
 .skills-area {
     background-color: #EDF5FD;
-    padding: 80px 0;
+    padding: 60px 0;
 }
 .skill-list {
     margin-top: 50px;
@@ -211,45 +197,19 @@ a {
     float: left;
 }
 .skill-name {
-    font-size: 20px;
+    font-size: 25px;
     font-family: "Arial", sans-serif;
     font-weight: normal;
     margin: 0 0 10px;
 }
-.skill-meter {
-    height: 12px;
-    width: 100%;
-    display: block;
-}
-.skill-meter::-webkit-meter-inner-element {
-    display: block;
-}
-.skill-meter::-webkit-meter-bar {
-    border: none;
-    background-color: #FFF;
-}
-.skill-meter::-webkit-meter-optimum-value {
-    background-color: #009BFC;
-    border-radius: 10px;
-}
-.skill-mastery {
-    position: absolute;
-    top:0;
-    right:0;
-    line-height: 1;
-}
-.skill-mastery-number {
-    color: #ED338F;
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 3px;
-}
-
 .skill-image {
     width: 140px;
     float: right;
 }
-/* ===== skill-rating ===== */
+.skill-summry{
+    margin-top: 10px;
+}
+/* === skill-rating === */
 .skill-rate{
     margin:0;
 }
@@ -277,7 +237,7 @@ a {
 
 /* ===== works ===== */
 .works-area {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 .works-wrap {
     margin-top: 50px;
@@ -287,12 +247,13 @@ a {
     display: flex;
     justify-content: space-between;
 }
-.works-inner.second .works-image-wrap {
+/* ↓↓↓ secondできたら解除 ↓↓↓ */
+/* .works-inner.second .works-image-wrap {
     order: 2;
 }
 .works-inner.second .works-text-wrap {
     order: 1;
-}
+} */
 .works-image-wrap {
     width: 700px;
     position: relative;
@@ -313,92 +274,40 @@ a {
     font-size: 22px;
     background-color: #003978;
     padding: 8px 10px;
-    margin: 0 0 30px;
+    margin:0 0 30px;
     display: inline-block;
 }
 .works-summary {
     font-size: 18px;
     margin: 0 0 30px;
 }
-/* ボタン共通設定 */
+/* === github btn === */
 .work-btn {
-    /*線の基点とするためrelativeを指定*/
 	position: relative;
-    /*ボタンの形状*/
 	display:inline-block;
     padding: 10px 30px;
 	color:#55206d;
     font-weight:bold;
 	border:1px solid #ccc;
-    text-decoration: none;
-    outline: none;
-    /*はみ出す背景色を隠す*/
- 	overflow: hidden;
-    border-radius: 8px;
 }
-
-/*hoverした際のボタンの形状*/
 .work-btn:hover {
 	color:#fff;
 	border-color: transparent;
-    /*色の変化を遅らせる*/
-	transition-delay: .6s;
 }
-
-/*線の設定*/
-.work-btn span{
-    display: block;
-    z-index: 2;
-}
-
-/*== 線から塗に変化（左から右） */
-
-/*線の設定*/
-.borderleft span::before,
-.borderleft span::after {
-    content: '';
-    /*絶対配置で線の位置を決める*/
-    position: absolute;
-    width:0;
-    height:1px;
-    /*線の形状*/
-    background: #55206d;
-    /*アニメーションの設定*/
-	transition: all .3s;
-}
-
-/*左上線*/
-.borderleft span::before {
-    left:0;
-    top:0;
-}
-
-/*左下線*/
-.borderleft span::after {
-    left:0;
-    bottom:0;
-}
-/*背景の設定*/
 .borderleft::before{
 	content: '';
-    /*絶対配置で線の位置を決める*/
 	position: absolute;
 	left: 0;
     bottom:0;
 	z-index: -1;
-    /*背景の形状*/
 	height: 100%;
 	width: 0;
 	background:#55206d;
-    /*アニメーションの設定*/
-	transition: all .3s;
+	transition: 0.5s;
 }
-
-/*hoverをすると背景が伸びる*/
+/* ↓↓↓ hoverをすると背景が伸びる ↓↓↓ */
 .borderleft:hover::before{
 	width: 100%;
-    /*0.4秒遅れてアニメーション*/
-	transition-delay: .4s;
 }
 .works-zoom {
     text-align: center;
@@ -474,12 +383,12 @@ a {
     color:#fff;
 }
 
-/* === お問い合わせ ここから === */
+/* ===== contact ===== */
 .contact-area {
     background-image: url("./images/contact-bck.jpeg");
     padding: 80px 0;
 }
-.contact-area .section-title .en {
+.contact-area .section-title{
     color: #FFF;
 }
 .contact-form {
@@ -529,17 +438,17 @@ a {
     width: 140px;
     border: none;
     padding: 10px 0;
-    border-radius: 3px;
+    border-radius: 5px;
     box-shadow: 0px 5px 0 #000;
     transition:0.3s;
     cursor: pointer;
 }
 .btn-submit:hover {
-    transform: translate3d(0, 5px, 0);
+    transform: translate(0, 5px);
     box-shadow: none;
 }
-/* === お問い合わせ ここまで === */
-/* === フッター ここから === */
+
+/* ===== footer ===== */
 .footer {
     color: #FFF;
     background-color: #000;
@@ -652,11 +561,21 @@ a {
         margin-top:50px;
         text-align: center;
     }
+    .skill-item{
+        width:90%;
+        margin: 0 auto;
+    }
+    .skill-name{
+        margin: 0;
+    }
     .skill-image{
         position:absolute;
         right:40px;
         width:80px;
         margin-bottom: 30px;
+    }
+    .skill-detail{
+        margin-bottom: 20px;
     }
     .works-inner{
         /* ↓↓↓ flex無効化　↓↓↓ */
@@ -684,6 +603,8 @@ a {
         position: relative;
         top: 0;
         left: 0;
+        /* border:solid 1px #ccc; */
+        box-shadow: 3px 3px 15px #999;;
     }
     .works-image-inner img {
         position: absolute;
